@@ -1,4 +1,4 @@
-package com.example.vtabaran.fm.api.request
+package com.example.vtabaran.fm.service.api.request
 
 import com.example.vtabaran.fm.User
 
@@ -13,7 +13,7 @@ abstract class Request {
 
     open var method: String = "GET"
 
-    abstract fun getBody(): String
+    abstract fun getBody(): String?
 
     companion object {
         const val AUTH_TOKEN_KEY: String = "X-AUTH-TOKEN"

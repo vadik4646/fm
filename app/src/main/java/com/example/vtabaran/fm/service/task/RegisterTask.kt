@@ -1,16 +1,16 @@
-package com.example.vtabaran.fm.task
+package com.example.vtabaran.fm.service.task
 
 import android.os.AsyncTask
 import android.util.Log
 import com.example.vtabaran.fm.User
-import com.example.vtabaran.fm.api.ApiRequest
-import com.example.vtabaran.fm.api.Response
-import com.example.vtabaran.fm.api.request.RegisterRequest
+import com.example.vtabaran.fm.service.api.ApiRequest
+import com.example.vtabaran.fm.service.api.Response
+import com.example.vtabaran.fm.service.api.request.RegisterRequest
 import java.io.*
 import java.net.MalformedURLException
 import java.net.ProtocolException
 
-class RegisterTask constructor(private var registerRequest: RegisterRequest): AsyncTask<String, String, Response>() {
+class RegisterTask constructor(private var registerRequest: RegisterRequest) : AsyncTask<String, String, Response>() {
 
     override fun doInBackground(vararg params: String): Response? {
         try {
@@ -37,8 +37,8 @@ class RegisterTask constructor(private var registerRequest: RegisterRequest): As
         }
 
         val token: String = response.getToken() ?: return
+        val id: Int = response.getData()?.getInt("user_id") ?: return
 
-        User.set(registerRequest.email, token)
+        User.set(registerRequest.email, token, id)
     }
-
 }

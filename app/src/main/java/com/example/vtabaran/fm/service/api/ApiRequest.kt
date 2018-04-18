@@ -1,6 +1,6 @@
-package com.example.vtabaran.fm.api
+package com.example.vtabaran.fm.service.api
 
-import com.example.vtabaran.fm.api.request.Request
+import com.example.vtabaran.fm.service.api.request.Request
 import java.io.*
 import java.net.URL
 import java.net.HttpURLConnection
@@ -9,10 +9,14 @@ class ApiRequest constructor(private val request: Request) {
 
     fun send(): Response {
         val connection = connect()
-        val out = OutputStreamWriter(connection.outputStream)
 
-        out.write(request.getBody())
-        out.close()
+        val body = request.getBody()
+
+        if (body != null) {
+            val out = OutputStreamWriter(connection.outputStream)
+            out.write(body)
+            out.close()
+        }
 
         return getResponse(connection)
     }
@@ -26,7 +30,6 @@ class ApiRequest constructor(private val request: Request) {
             connection.setRequestProperty(headerKey, headerValue)
         }
 
-        connection.setRequestProperty("Content-Type", "application/json")
         connection.requestMethod = request.method
         connection.connect()
 

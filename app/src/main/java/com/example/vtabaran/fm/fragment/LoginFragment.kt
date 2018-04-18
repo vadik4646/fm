@@ -7,27 +7,31 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import com.example.vtabaran.fm.R
-import com.example.vtabaran.fm.adapter.IncomeListAdapter
-import com.example.vtabaran.fm.entity.Income
-import com.example.vtabaran.fm.service.repository.IncomeRepository
+import com.example.vtabaran.fm.service.api.request.LoginRequest
+import com.example.vtabaran.fm.service.task.LoginTask
 
-
-class IncomeFragment : Fragment() {
-
-    private var incomeOffset = 0
-    private val incomeCount = 10
-    private lateinit var incomeAdapter: IncomeListAdapter
+class LoginFragment : Fragment() {
 
     private var mListener: OnFragmentInteractionListener? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_income, container, false)
+        return inflater.inflate(R.layout.fragment_login, container, false)
+    }
 
-        incomeAdapter = IncomeListAdapter(inflater, view.findViewById(R.id.income_list_container))
-        loadMoreIncomes()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        return view
+        view.findViewById<Button>(R.id.loginButton).setOnClickListener {
+            val loginEmail = view.findViewById<EditText>(R.id.loginEmail)
+            val loginPassword = view.findViewById<EditText>(R.id.loginPassword)
+
+            val loginRequest = LoginRequest(loginEmail.text.toString(), loginPassword.text.toString())
+
+            LoginTask(loginRequest).execute()
+        }
     }
 
     override fun onAttach(context: Context?) {
@@ -48,17 +52,10 @@ class IncomeFragment : Fragment() {
         fun onFragmentInteraction(uri: Uri)
     }
 
-    private fun loadMoreIncomes() {
-        val incomeRepository = IncomeRepository()
-        val incomes = incomeRepository.findByUser(incomeOffset, incomeCount)
-        incomeAdapter.append(incomes)
-        incomeOffset += incomeCount
-    }
-
     companion object {
 
-        fun newInstance(): IncomeFragment {
-            return IncomeFragment()
+        fun newInstance(): LoginFragment {
+            return LoginFragment()
         }
 
     }

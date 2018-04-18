@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <nav name="nav_main">Main</nav>
-    <nav name="nav_income">Income</nav>
-    <nav name="nav_expense">Expense</nav>
-    <nav name="nav_settings">Settings</nav>
-    <nav name="nav_login">Login</nav>
-    <nav name="nav_register">Register</nav>
-</resources>

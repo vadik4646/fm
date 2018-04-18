@@ -1,11 +1,13 @@
-package com.example.vtabaran.fm.task
+package com.example.vtabaran.fm.service.task
 
 import android.os.AsyncTask
 import android.util.Log
 import com.example.vtabaran.fm.User
-import com.example.vtabaran.fm.api.ApiRequest
-import com.example.vtabaran.fm.api.Response
-import com.example.vtabaran.fm.api.request.LoginRequest
+import com.example.vtabaran.fm.service.api.ApiRequest
+import com.example.vtabaran.fm.service.api.Response
+import com.example.vtabaran.fm.service.api.request.LoginRequest
+import com.example.vtabaran.fm.fragment.LoginFragment
+import com.example.vtabaran.fm.util.UiHelper
 import java.io.*
 import java.net.MalformedURLException
 import java.net.ProtocolException
@@ -37,7 +39,9 @@ class LoginTask constructor(private var loginRequest: LoginRequest) : AsyncTask<
         }
 
         val token: String = response.getToken() ?: return
+        val id: Int = response.getData()?.getInt("user_id") ?: return
 
-        User.set(loginRequest.email, token)
+        User.set(loginRequest.email, token, id)
+        UiHelper.switchFragment(LoginFragment.newInstance())
     }
 }

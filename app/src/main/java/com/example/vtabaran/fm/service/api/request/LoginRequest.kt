@@ -1,9 +1,9 @@
-package com.example.vtabaran.fm.api.request
+package com.example.vtabaran.fm.service.api.request
 
 import org.json.JSONObject
 
-class RegisterRequest constructor(val email: String, private val password: String): Request() {
-    override var path = "register"
+class LoginRequest constructor(val email: String, private val password: String): Request () {
+    override var path = "login"
 
     override var method = "POST"
 

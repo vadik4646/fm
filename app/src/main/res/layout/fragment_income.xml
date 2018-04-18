@@ -1,19 +1,19 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<ScrollView
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.vtabaran.fm.MainActivity"
-    tools:showIn="@layout/app_bar_main">
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/income_list_container"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Income fragment"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</FrameLayout>
+        android:layout_gravity="clip_vertical"
+        android:layout_weight="1"
+        android:background="@color/background"
+        android:baselineAligned="false"
+        android:orientation="vertical"
+        android:shrinkColumns="1"
+        android:stretchColumns="1"
+        tools:context="com.example.vtabaran.fm.fragment.IncomeFragment" />
+</ScrollView>

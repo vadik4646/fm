@@ -7,19 +7,19 @@
         <item
             android:id="@+id/nav_main"
             android:icon="@android:drawable/btn_star"
-            android:title="Main" />
+            android:title="@string/nav_main" />
         <item
             android:id="@+id/nav_income"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Income" />
+            android:title="@string/nav_income" />
         <item
             android:id="@+id/nav_expense"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Expense" />
+            android:title="@string/nav_expense" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:title="@string/nav_settings" />
     </group>
 
     <item android:title="Communicate">
@@ -27,11 +27,11 @@
             <item
                 android:id="@+id/nav_login"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Login" />
+                android:title="@string/nav_login" />
             <item
                 android:id="@+id/nav_register"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Register" />
+                android:title="@string/nav_register" />
         </menu>
     </item>
 
