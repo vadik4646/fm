@@ -41,7 +41,6 @@ class MainFragment : Fragment() {
         chart.data = lineData
         chart.invalidate()
 
-
         return view
     }
 
