@@ -29,51 +29,51 @@
         android:background="@color/background"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context="com.example.vtabaran.fm.MainActivity"
-        tools:showIn="@layout/app_bar_main" />
+        tools:showIn="@layout/app_bar_main" >
+
+    </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_gravity="center"
         android:orientation="horizontal"
+        android:background="@color/backgroundBottom"
         app:layout_anchor="@+id/fragment_container"
         app:layout_anchorGravity="bottom|center">
 
-        <TextView
+        <ImageButton
+            android:id="@+id/imageButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nav"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center_horizontal" />
+            android:background="@color/backgroundBottom"
+            app:srcCompat="@drawable/ic_credit_card" />
 
-        <TextView
+        <ImageButton
+            android:id="@+id/imageButton2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nav"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center_horizontal" />
+            android:background="@color/backgroundBottom"
+            app:srcCompat="@drawable/ic_four_black_squares" />
 
-        <TextView
+        <ImageButton
+            android:id="@+id/imageButton3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nav"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center_horizontal" />
+            android:background="@color/backgroundBottom"
+            app:srcCompat="@drawable/ic_secure_transaction" />
 
-        <TextView
+        <ImageButton
+            android:id="@+id/imageButton4"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nav"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center_horizontal" />
+            android:background="@color/backgroundBottom"
+            app:srcCompat="@drawable/ic_infographic_diagram" />
+
     </LinearLayout>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
 
 </android.support.design.widget.CoordinatorLayout>
